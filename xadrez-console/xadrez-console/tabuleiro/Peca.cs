@@ -32,7 +32,7 @@
             return false;
         }
 
-        public bool podeMoverPara(Posicao pos){
+        public bool movimentosPossivel(Posicao pos){
             return movimentosPossiveis()[pos.linha, pos.coluna];
         }
     }
