@@ -10,7 +10,7 @@ namespace xadrez_console {
             Console.WriteLine();
             imprimirPecasCapturadas(partida);
             Console.WriteLine();
-            Console.WriteLine("Truno: " + partida.turno);
+            Console.WriteLine("Turno: " + partida.turno);
             if (!partida.terminada)
             {
                 Console.WriteLine("Aguardando jogada: " + partida.jogadorAtual);
