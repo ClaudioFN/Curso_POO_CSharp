@@ -17,5 +17,7 @@ namespace xadrez {
         {
             return "" + coluna + ", " + linha;
         }
+
+
     }
 }

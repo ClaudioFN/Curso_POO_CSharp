@@ -12,11 +12,11 @@
         }
 
         public abstract bool[,] movimentosPossiveis();
-        public void incrementarQtdMoviemntos(){
+        public void incrementarQtdMovimentos(){
             qteMovimentos++;
         }
 
-        public void decrementarQtdMoviemntos(){
+        public void decrementarQtdMovimentos(){
             qteMovimentos--;
         }
 
