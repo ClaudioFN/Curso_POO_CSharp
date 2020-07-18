@@ -24,5 +24,37 @@ namespace uso_arquivos {
             }
         }
         */
+
+        /* Aula 2 - 187
+        *  FileStream - Cria instância aberta do arquivo para uso
+        *  StreamReader - Lê o arquivo aberto no FileStream
+        
+        static void Main(string[] args) {
+            string path = @"C:\temp\file1.txt";
+            FileStream fs = null;
+            StreamReader sr = null;
+
+            try {
+                fs = new FileStream(path, FileMode.Open); // Abrir o arquivo
+                sr = new StreamReader(fs); // Instância para leitura
+                string line;
+                while (!sr.EndOfStream) { // Loop de leitura
+                    line = sr.ReadLine();
+                    Console.WriteLine(line);
+                }
+            }catch(IOException e) {
+                Console.WriteLine("An error occurred!");
+                Console.WriteLine(e.Message);
+            }
+            finally {
+                if (sr != null ) sr.Close();
+                if (fs != null) fs.Close();
+            } 
+        }
+        */
+        static void Main(string[] args) {
+            string path = @"C:\temp\file1.txt";
+            
+        }
     }
 }
