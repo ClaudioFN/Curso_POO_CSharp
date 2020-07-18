@@ -79,8 +79,35 @@ namespace uso_arquivos {
         }
         */
 
+        /* Aula 4 - 189
+        *  StreamWriter - Para escrever em arquivos 
+        
         static void Main(string[] args) {
+            string sourcePath = @"C:\temp\file1.txt";
+            string targetPath = @"C:\temp\file2.txt";
 
+            try {
+                string[] lines = File.ReadAllLines(sourcePath);
+
+                using (StreamWriter sw = File.AppendText(targetPath)) { // AppendText instância um StreamWriter e escreve em um arquivo
+                    foreach(string line in lines) {
+                        sw.WriteLine("");
+                        sw.WriteLine(line.ToUpper());
+                        sw.WriteLine("Texto");
+                    }
+                }
+            }catch(IOException e) {
+                Console.WriteLine("An error occurred!");
+                Console.WriteLine(e.Message);
+            }
+
+        }
+        */
+        /* Aula 4 - 189
+        *  StreamWriter - Para escrever em arquivos 
+        */
+        static void Main(string[] args) {
+            
         }
     }
 }
