@@ -6,4 +6,8 @@
     <RootNamespace>uso_arquivos</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Program.cs~RF1ccf138.TMP" />
+  </ItemGroup>
+
 </Project>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Collections.Generic;
 
 namespace uso_arquivos {
     class Program {
@@ -103,11 +104,43 @@ namespace uso_arquivos {
 
         }
         */
-        /* Aula 4 - 189
-        *  StreamWriter - Para escrever em arquivos 
+
+        /* Aula 5 - 190
+        *  Directory - Leitura de pastas do diretório, leitura de arquivos do diretório e criação de pastas
+        
+        static void Main(string[] args) {
+            string path = @"C:\temp";
+
+            try {
+                IEnumerable<string> folders = Directory.EnumerateDirectories(path, "*.*", SearchOption.AllDirectories); // Diretórios 
+                Console.WriteLine("FOLDERS: ");
+                foreach (string s in folders) {
+                    Console.WriteLine(s);
+                }
+
+                var files = Directory.EnumerateFiles(path, "*.*", SearchOption.AllDirectories); // Arquivos
+                Console.WriteLine("FILES: ");
+                foreach (string s in files) {
+                    Console.WriteLine(s);
+                }
+
+                Directory.CreateDirectory(path + "\\new_folder"); // Criar pasta
+            }
+            catch(IOException e) {
+                Console.WriteLine("An error has occurred");
+                Console.WriteLine(e.Message);
+            }
+        }
+        */
+
+        /* Aula 6 - 191
+        *  Path
         */
         static void Main(string[] args) {
-            
+            string path = @"C:\Users\claudio\Documents\Mobizen\file1.txt";
+
+            Console.WriteLine("GetDirectoryName : " + Path.GetDirectoryName(path));
+
         }
     }
 }
