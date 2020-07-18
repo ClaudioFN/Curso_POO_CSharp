@@ -52,9 +52,35 @@ namespace uso_arquivos {
             } 
         }
         */
+
+        /* Aula 3 - 188
+        *  Bloco Using - Serve para dispensar o uso de Close() quando se conclui o uso de um arquivo
+
         static void Main(string[] args) {
             string path = @"C:\temp\file1.txt";
-            
+            try {
+                //using (FileStream fs = new FileStream(path, FileMode.Open)) { // Bloco Duplo para uso do FileStream
+                //    using (StreamReader sr = new StreamReader(fs)) {
+                //        while (!sr.EndOfStream) {
+                //            Console.WriteLine(sr.ReadLine());
+                //        }
+                //    }
+                //}
+                 using (StreamReader sr = File.OpenText(path)) { // Bloco Único para uso apenas do StreamReader
+                     while (!sr.EndOfStream) {
+                         Console.WriteLine(sr.ReadLine());
+                     }
+                 }
+            }
+            catch (IOException e) {
+                Console.WriteLine("An error occurred!");
+                Console.WriteLine(e.Message);
+            }
+        }
+        */
+
+        static void Main(string[] args) {
+
         }
     }
 }
