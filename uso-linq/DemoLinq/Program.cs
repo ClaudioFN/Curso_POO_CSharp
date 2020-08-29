@@ -38,18 +38,33 @@ namespace DemoLinq {
             var r1 = products.Where(p => p.Category.Tier == 1 && p.Price < 900.0);
             Print("Tier 1 and Price < 900.00:", r1);
 
+            var r1_2 = from p in products where p.Category.Tier == 1 && p.Price < 900.0 select p;
+            Print("Tier 1 and Price < 900.00(C#SQL):", r1_2);
+
             var r2 = products.Where(p => p.Category.Name == "Tools").Select(p => p.Name);
             Print("Products with names like tools:", r2);
 
+            var r2_2 = from p in products where p.Category.Name == "Tools" select p.Name;
+            Print("Products with names like tools(C#SQL):", r2_2);
+
             // CategoryName: alias para evitar ambiguidade
             var r3 = products.Where(p => p.Name[0] == 'C').Select(p => new { p.Name, p.Price, CategoryName = p.Category.Name });
-            Print("Names starting with C and anonymous object", r3);
+            Print("Names starting with C and anonymous object: ", r3);
+
+            var r3_2 = from p in products where p.Name[0] == 'C' select new { p.Name, p.Price, CategoryName = p.Category.Name };
+            Print("Names starting with C and anonymous object(C#SQL): ", r3_2);
 
             var r4 = products.Where(p => p.Category.Tier == 1).OrderBy(p => p.Price).ThenBy(p => p.Name);
             Print("Tier 1 orded by Price and Name: ", r4);
 
+            var r4_2 = from p in products where p.Category.Tier == 1 orderby p.Name orderby p.Price select p;
+            Print("Tier 1 orded by Price and Name(C#SQL): ", r4_2);
+
             var r5 = r4.Skip(2).Take(4);
             Print("Orded by Price and Name selecting after 2 only 4: ", r5);
+
+            var r5_2 = (from p in products select p).Skip(2).Take(4);
+            Print("Orded by Price and Name selecting after 2 only 4(C#SQL): ", r5_2);
 
             var r6 = products.FirstOrDefault();
             Console.WriteLine("First pr default: " + r6);
