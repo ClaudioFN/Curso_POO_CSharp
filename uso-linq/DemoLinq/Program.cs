@@ -53,6 +53,21 @@ namespace DemoLinq {
 
             var r6 = products.FirstOrDefault();
             Console.WriteLine("First pr default: " + r6);
+
+            // Achar o máximo e mínino na coleção 
+            var r10 = products.Max(p => p.Price);
+            Console.WriteLine("Max Price: " + r10);
+            var r11 = products.Min(p => p.Price);
+            Console.WriteLine("Min Price: " + r11);
+
+            // Instrução de soma
+            var r12 = products.Where(p => p.Category.Id == 1).Sum(p => p.Price);
+            Console.WriteLine("Category 1 Sum Price: " + r12);
+
+            // Instrução de soma personalizada via Aggregate(0.0 para dar valor inicial)
+            var r13 = products.Where(p => p.Category.Id == 1).Select(p => p.Price).Aggregate(0.0, (x, y) => x + y);
+            Console.WriteLine("Category 1 Aggregate Sum: " + r13);
+
         }
     }
 }
